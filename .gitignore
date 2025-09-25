@@ -6,8 +6,6 @@ tracker-backend/node_modules/
 # Build output
 dist/
 build/
-.child-web/dist/
-.tracker-backend/dist/
 
 # Environment files (secrets)
 .env
