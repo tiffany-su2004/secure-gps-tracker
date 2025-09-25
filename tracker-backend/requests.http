@@ -1,0 +1,22 @@
+### 1) Request OTP
+POST http://localhost:8080/request-otp
+Content-Type: application/json
+
+{ "phone": "+60120000000" }
+
+### 2) Verify OTP (paste code from server console)
+POST http://localhost:8080/verify-otp
+Content-Type: application/json
+
+{ "phone": "+60120000000", "otp": "PASTE_OTP_HERE" }
+
+### 3) Child sends location (use token from step 2)
+POST http://localhost:8080/locations
+Content-Type: application/json
+Authorization: Bearer PASTE_JWT_HERE
+
+{ "lat": 3.139, "lng": 101.686 }
+
+### 4) Parent fetches latest location (parent needs its own JWT too, or just reuse child for now)
+GET http://localhost:8080/locations/+60120000000
+Authorization: Bearer PASTE_JWT_HERE
